@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #f7ede1;
+    --surface: #ffffff;
+    --border: #ddd5cc;
+    --text: #163157;
+    --muted: #5c6369;
+}
+
+html { font-size: 20px; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 60px 40px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.headline-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+}
+
+.headline-stat { text-align: center; }
+
+.headline-stat .value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.headline-stat .label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.divider {
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+}
+
+.insight-banner {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    background: color-mix(in srgb, #e4b722 8%, transparent);
+    border: 1px solid color-mix(in srgb, #e4b722 25%, transparent);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.insight-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.insight-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.insight-text strong { color: #163157; }
+
+.product-section-header {
+    max-width: 1200px;
+    margin: 64px auto 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.product-section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.product-section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.product-section-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+}
+
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.04;
+}
+
+.product-card.star        { --accent: #c49a00; background: linear-gradient(135deg, #ffffff 60%, color-mix(in srgb, #c49a00 8%, transparent)); }
+.product-card.outstanding { --accent: #c49a00; background: linear-gradient(135deg, #ffffff 60%, color-mix(in srgb, #c49a00 8%, transparent)); border-color: #c49a00; }
+.product-card.outstanding::before { background: linear-gradient(90deg, #163157, #c49a00); height: 4px; }
+.product-card.risk        { --accent: #c0622f; }
+.product-card.niche       { --accent: #4a8b7f; }
+.product-card.volume      { --accent: #e4b722; }
+.product-card.dead        { --accent: #999999; }
+
+.product-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.product-code {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+    font-weight: 300;
+}
+
+.product-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    min-height: 4.8rem;
+}
+
+.product-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: 300;
+    flex: 1;
+}
+
+.product-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.product-stat {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.product-stat .stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.product-stat .stat-label {
+    font-size: 0.62rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.product-insight {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+}
+
+.product-insight-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.product-insight-text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.risk-banner {
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    background: color-mix(in srgb, #c0622f 8%, transparent);
+    border: 1px solid color-mix(in srgb, #c0622f 25%, transparent);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.risk-banner .insight-text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.section-spacer {
+    height: 1px;
+    background: var(--border);
+    max-width: 1200px;
+    margin: 72px auto 0;
+}
+
+.dead-note {
+    max-width: 1200px;
+    margin: 0 auto 32px;
+    background: color-mix(in srgb, #999999 8%, transparent);
+    border: 1px solid color-mix(in srgb, #999999 25%, transparent);
+    border-radius: 12px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.star-tier-label {
+    max-width: 1200px;
+    margin: 40px auto 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.star-tier-label::before,
+.star-tier-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.star-tier-label span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #163157;
+    white-space: nowrap;
+    padding: 6px 16px;
+    border: 1px solid #163157;
+    border-radius: 20px;
+}
+
+.star-tier-label.rising span {
+    color: var(--muted);
+    border-color: var(--border);
+}
+
+/* Dead weight horizontal list - paste at the bottom of your CSS file */
+
+.dead-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dead-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 10px 20px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 860px;
+}
+
+.dead-row::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+}
+
+.dead-row.remove::before     { background: #999999; }
+.dead-row.investigate::before { background: #c0622f; }
+.dead-row.monitor::before     { background: #4a8b7f; }
+
+.dead-decision {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.dead-row.remove .dead-decision {
+    color: #999999;
+    background: color-mix(in srgb, #999999 10%, transparent);
+    border: 1px solid color-mix(in srgb, #999999 28%, transparent);
+}
+
+.dead-row.investigate .dead-decision {
+    color: #c0622f;
+    background: color-mix(in srgb, #c0622f 10%, transparent);
+    border: 1px solid color-mix(in srgb, #c0622f 28%, transparent);
+}
+
+.dead-row.monitor .dead-decision {
+    color: #4a8b7f;
+    background: color-mix(in srgb, #4a8b7f 10%, transparent);
+    border: 1px solid color-mix(in srgb, #4a8b7f 28%, transparent);
+}
+
+.dead-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dead-code {
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    font-weight: 300;
+}
+
+.dead-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.dead-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    gap: 8px;
+}
+
+.dead-stat {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px;
+    min-width: 90px;
+}
+
+.dead-stat .stat-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #999999;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.dead-stat .stat-label {
+    font-size: 0.55rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: normal;
+}
+
+.dead-note-text {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+    font-weight: 300;
+    grid-column: 2 / -1;
+}
