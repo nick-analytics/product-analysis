@@ -222,9 +222,10 @@ body {
 
 .product-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .product-stat {
@@ -247,7 +248,7 @@ body {
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    white-space: nowrap;
+    
 }
 
 .product-insight {
